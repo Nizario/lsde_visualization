@@ -51,6 +51,11 @@
 				feature.properties.icao + " </p><p> Flight number:  "+ feature.properties.flight+"</p><p> Altitude of observation: " + feature.properties.altitude + " </p><p> Pictures of the aircraft: <a href='"+feature.properties.aircraft_url+"'>"+feature.properties.aircraft_type+"</a></p>" ;
 
 		layer.bindPopup(popupContent);
+		if (layer instanceof L.Polyline) {
+      layer.setStyle({
+        'color': feature.properties.strokeColor
+      });
+    }
 	}
 
 	L.geoJSON(aircrafts, {
